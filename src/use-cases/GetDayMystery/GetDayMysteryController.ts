@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { GetDayMysteryUseCase } from "./GetDayMysteryUseCase";
 import { getDay } from "date-fns";
 import {tz} from "@date-fns/tz";
+import { WeekDayParser } from "../../utils/WeekDayParser";
 
 export class GetDayMysteryController
 {
@@ -13,25 +14,34 @@ export class GetDayMysteryController
     {
         let weekDayNumber: number; 
 
-        const dayParam = request.params.day; 
-
-        if(dayParam)
-        {
-            console.log("veio argumento");
-            // if(isNaN(Number(dayParam)))
-            // {
-
-            // }
-            weekDayNumber = 0;
-        }
-        else 
-        {
-            weekDayNumber = getDay(new Date, { in: tz("America/Fortaleza")});
-        }
-
-        console.log(weekDayNumber);
+        const weekDayParam = request.params.day; 
 
         try {
+
+            if(weekDayParam)
+            {
+                console.log("veio argumento");
+                if(isNaN(Number(weekDayParam)))
+                {
+                    weekDayNumber = WeekDayParser.parse(weekDayParam);
+                }
+                else
+                {
+                    weekDayNumber = Number(weekDayParam);
+                }
+            }
+            else 
+            {
+                weekDayNumber = getDay(new Date, { in: tz("America/Fortaleza")});
+            }
+
+            if(weekDayNumber === null) 
+            {
+                throw new Error(`Invalid parameter: ${weekDayNumber}`);
+            }
+
+            console.log(weekDayNumber);
+
             const dayMystery = this.getMysteryUseCase.get(weekDayNumber);
             
             response.status(200).send(dayMystery);
