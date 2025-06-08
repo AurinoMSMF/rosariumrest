@@ -8,7 +8,6 @@ router.get("/day-mystery/", (request, response) => {
 });
 
 router.get("/day-mystery/:day", (request, response) => {
-    console.log(request.params.day);
     return getDayMysteryController.handle(request, response);
 });
 
