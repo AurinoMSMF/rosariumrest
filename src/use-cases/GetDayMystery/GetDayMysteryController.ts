@@ -20,7 +20,6 @@ export class GetDayMysteryController
 
             if(weekDayParam)
             {
-                console.log("veio argumento");
                 if(isNaN(Number(weekDayParam)))
                 {
                     weekDayNumber = WeekDayParser.parse(weekDayParam);
@@ -39,8 +38,6 @@ export class GetDayMysteryController
             {
                 throw new Error(`Invalid parameter: ${weekDayNumber}`);
             }
-
-            console.log(weekDayNumber);
 
             const dayMystery = this.getMysteryUseCase.get(weekDayNumber);
             
