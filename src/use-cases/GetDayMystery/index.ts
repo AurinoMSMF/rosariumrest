@@ -1,8 +1,10 @@
-import { GetDayMysteryController } from "./GetDayMysteryController";
-import { GetDayMysteryUseCase } from "./GetDayMysteryUseCase";
+import GetDayMysteryController from "./GetDayMysteryController.js";
+import { GetDayMysteryUseCase } from "./GetDayMysteryUseCase.js";
 
 const getDayMysteryUseCase = new GetDayMysteryUseCase();
 
-const getDayMysteryController = new GetDayMysteryController(getDayMysteryUseCase);
+const getDayMysteryController = new GetDayMysteryController(
+  getDayMysteryUseCase,
+);
 
 export { getDayMysteryController, getDayMysteryUseCase };

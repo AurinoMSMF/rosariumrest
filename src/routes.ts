@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDayMysteryController } from "./use-cases/GetDayMystery";
+import { getDayMysteryController } from "./use-cases/GetDayMystery/index.js";
 
 const router = Router();
 

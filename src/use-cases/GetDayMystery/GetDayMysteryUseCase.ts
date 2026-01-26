@@ -1,13 +1,9 @@
-import { Rosarium } from "../../entities/Rosarium";
+import { Rosarium } from "../../entities/Rosarium.ts";
 
-export class GetDayMysteryUseCase
-{
+export class GetDayMysteryUseCase {
+  get(weekdayNumber: number) {
+    const dayMystery = Rosarium.getMystery(weekdayNumber);
 
-    get( weekdayNumber : number )
-    {
-        const dayMystery = Rosarium.getMystery( weekdayNumber );
-        
-        return dayMystery;
-    }
-
+    return dayMystery;
+  }
 }

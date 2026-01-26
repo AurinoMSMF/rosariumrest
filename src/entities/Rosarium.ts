@@ -1,13 +1,11 @@
-import { MysteryFactory } from "../factories/MysteryFactory";
+import { MysteryFactory } from "../factories/MysteryFactory.ts";
 
-export class Rosarium
-{
-    constructor() {
-        throw new Error('Esta classe não pode ser instanciada');
-    }
+export class Rosarium {
+  constructor() {
+    throw new Error("Esta classe não pode ser instanciada");
+  }
 
-    static getMystery( weekdayNumber : number ) 
-    {
-        return MysteryFactory.buildMystery( weekdayNumber );
-    }
+  static getMystery(weekdayNumber: number) {
+    return MysteryFactory.buildMystery(weekdayNumber);
+  }
 }
