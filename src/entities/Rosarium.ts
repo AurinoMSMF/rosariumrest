@@ -1,4 +1,4 @@
-import { MysteryFactory } from "../factories/MysteryFactory.ts";
+import { MysteryFactory } from "../factories/MysteryFactory.js";
 
 export class Rosarium {
   constructor() {

@@ -1,4 +1,4 @@
-import { Rosarium } from "../../entities/Rosarium.ts";
+import { Rosarium } from "../../entities/Rosarium.js";
 
 export class GetDayMysteryUseCase {
   get(weekdayNumber: number) {
