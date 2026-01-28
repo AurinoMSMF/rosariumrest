@@ -20,7 +20,11 @@ export default class GetDayMysteryController {
           weekDayNumber = Number(weekDayParam);
         }
       } else {
-        weekDayNumber = getDay(new Date(), { in: tz("America/Fortaleza") });
+        const weekDayNumberCorrection = 1;
+
+        weekDayNumber =
+          getDay(new Date(), { in: tz("America/Fortaleza") }) +
+          weekDayNumberCorrection;
       }
 
       if (weekDayNumber === null) {

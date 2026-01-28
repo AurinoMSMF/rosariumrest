@@ -1,7 +1,6 @@
 import { mysteriesJson } from "../sanctum-rosarium.json.js";
 
 export class MysteryFactory {
-  // [0,1,2,3,4,5,6]
   static #gloriosa = [1, 4];
   static #dolorosa = [3, 6];
   static #gaudiosa = [2, 5, 7];
